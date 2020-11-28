@@ -16,6 +16,16 @@
         <% if(DBListener.e!=null){ %>
             <div style="color:red"> <%= DBListener.e %> </div>
         <% } %>
-        <h1>Hello World!</h1>
+        <h1>Controle de acesso</h1>
+        <% try{ %>
+        <h2>Usuários:  <%= DBListener.getUsersCount() %></h2>
+        <% for(String email: DBListener.getUsersEmail()){ %>
+        <div><%= email %></div>
+        <% } %>
+        
+       
+        <% }catch (Exception requestException){ %>
+         <div style="color:red"> <%= requestException.getMessage() %> </div>
+        <% } %>
     </body>
 </html>
